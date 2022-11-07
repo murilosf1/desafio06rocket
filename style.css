@@ -1,0 +1,321 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+:root {
+  --ff-title: 'Staatliches', cursive;
+  --ff-text: 'Palanquin', sans-serif;
+
+  --bg-header: #8E9AAF;
+  --bg-main: #EFF1FF;
+
+  --color-text: #23053A;
+  --color-span: #4A4E69;
+
+  font-size: 62.5%;
+}
+  
+a {
+  text-decoration: none;
+}
+  
+header {
+  background-color: var(--bg-header);
+  padding: 3.2rem 0 0;
+}
+  
+h1 {
+  font-family: var(--ff-title);
+  font-size: 4rem;
+  letter-spacing: 0.05em;
+  
+  color: #FFFFFF;
+  text-shadow: 0px 2px 2px #00000040;
+  background-color: #CBC0D3;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+  
+.logo1 {
+  display: block;
+  width: 13.7rem;
+  margin: 0 auto 3.2rem;
+}
+   
+body {
+  background-color: var(--bg-main);
+  font-family: var(--ff-text);
+}
+  
+.page {
+  max-width: 32rem;
+  margin: 0 auto;
+}
+  
+.description p {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  line-height: 2rem;
+
+  text-align: center;
+  width: 100%;
+}
+  
+.description {
+  background-color: var(--bg-main); 
+  width: 100%;
+  margin-top: 3rem;
+  padding: 5rem;
+}
+  
+main {
+  display: grid;
+  gap: 3.2rem;
+}
+  
+main .card,
+main .card2 {
+  object-fit: contain;
+  position: relative;
+
+  transition: 500ms;
+  cursor: pointer;
+}
+
+main .card2 {
+  display: none; /*somente versão desktop*/
+}
+  
+main .card:hover,
+main .card2:hover {
+  transform: scale(1.08);
+  filter: opacity(0.8);
+}
+ 
+main .card:last-child {
+  margin-bottom: 6rem;
+}
+  
+img {
+  width: 100%;
+  height: auto;
+
+  border-radius: 2rem;
+  animation: down 600ms;
+}
+ 
+span {
+  position: absolute;
+  height: 3.5rem;
+  right: 1.6rem;
+
+  display: inline-flex;
+  margin: 1.6rem auto 19rem;
+  padding: 0 2.4rem;
+
+  width: fit-content;
+  align-items: center;
+
+  background-color: #FEEAFA;
+  color: var(--color-span);
+  border-radius: 2rem;
+  
+  font-family: var(--ff-title);
+  font-size: 2rem;
+
+  animation: appear 1s 500ms;
+}
+  
+footer{
+  display: none; /*somente versão desktop*/
+}
+
+
+/*****Animações*/
+@keyframes barrelRoll {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+ 
+  40% {
+    transform: rotate(360deg)
+  }
+  
+  50% {
+    transform: scale(1.1);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+  
+@keyframes down {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  
+  25% {
+    opacity: 1;
+  }
+  
+  50% {
+    transform: translateY(-10px);
+  }
+  
+  100% {
+    transform: translateY(0);
+  }
+}
+  
+
+
+@media (min-width: 800px) {
+  
+  body {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  header {
+    position: relative;
+    max-width: 37.7rem;
+    width: 30%;
+  }
+    
+  .description {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .description p {
+    position: absolute;
+    padding: 3rem 4rem;
+
+    color: #FFFFFF;
+    font-family: var(--ff-text);
+    font-size: 2rem;
+
+    background-color: var(--bg-top);
+  }
+   
+  .page  main {
+    display: grid;
+    margin: 64px 0 50px 0;
+    padding: 0;
+  
+    grid-template-areas:
+      "A B"
+      "D B"
+      "D C";
+  }
+  
+  main .card {
+    margin: 0;
+    width: 22rem;
+  }
+
+  main .card:nth-child(1) img,
+  main .card2:nth-child(5) img {
+    height: 15rem;
+    object-fit: cover;
+  }
+  
+  .page {
+    max-width: 198rem;
+    max-height: 108rem;
+  }
+  
+  main div:nth-child(1) {
+    grid-area: A;
+  }
+  
+  main div:nth-child(2) {
+    grid-area: B;
+  }
+  
+  main div:nth-child(3) {
+    grid-area: C;
+  }
+  
+  main div:nth-child(4) {
+    grid-area: D;
+  }
+  
+  main div:nth-child(5) {
+    grid-area: E;
+  }
+  
+  main div:nth-child(6) {
+    grid-area: F;
+  }
+  
+  footer {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+
+    margin-bottom: 4.6rem;
+  }
+  
+  footer p, a {
+    font-family: var(--ff-text);
+    font-size: 1.4rem;
+    line-height: 2rem;
+
+    margin-right: 4rem;
+    color: var(--color-span);
+  }
+
+  footer a {
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+
+
+@media (min-width: 1100px) {
+  .logo1 {
+    width: 24rem;
+  }
+  
+  header h1 {
+    font-size: 48px;
+    line-height: 34px;
+    padding: 21px 0;
+  }
+  
+  .page  main {
+    margin: 64px 0 50px 0;
+    padding: 0;
+    grid-template-areas:
+      "A B E"
+      "D B F"
+      "D C F";
+  }
+    
+  main .card2 { /*surgir mais 2 imagens*/
+    display: grid;
+    margin: 0;
+    width: 22rem;
+  }
+}
